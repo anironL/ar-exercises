@@ -24,18 +24,13 @@ store6.save
 @mens_stores = Store.where(mens_apparel: true, womens_apparel: false)
 
 # Loop through each of these stores and output their name and annual revenue on each line.
-x = 0
-while x < @mens_stores.length
-  puts "#{@mens_stores[x].name} revenue: $#{@mens_stores[x].annual_revenue}"
-  x += 1
+@mens_stores.each do | store |
+  puts "#{store.name} revenue: #{store.annual_revenue}"
 end
-
 
 # Do another fetch but this time load stores that carry women's apparel and are generating less than $1M in annual revenue.
 @womens_stores = Store.where('annual_revenue < ? AND mens_apparel = ? AND womens_apparel = ?', 1000000, false, true)
 
-y = 0
-while y < @womens_stores.length
-  puts "#{@womens_stores[y].name} revenue: $#{@womens_stores[y].annual_revenue}"
-  y += 1
+@womens_stores.each do | store |
+  puts "#{store.name} revenue: #{store.annual_revenue}"
 end
