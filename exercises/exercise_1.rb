@@ -13,7 +13,6 @@ store.save
 store = Store.create(name: "Richmond", annual_revenue: 1260000, mens_apparel: false, womens_apparel: true)
 store.save
 
-
 # Gastown (annual_revenue of 190000 carries men's apparel only)
 store = Store.create(name: "Gastown", annual_revenue: 190000, mens_apparel: true, womens_apparel: false)
 store.save
